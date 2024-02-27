@@ -1,0 +1,12 @@
+[submodule "dependencies/boolector"]
+	path = dependencies/boolector
+	url = https://github.com/Boolector/boolector.git
+[submodule "dependencies/sby"]
+	path = dependencies/sby
+	url = https://github.com/YosysHQ/sby
+[submodule "dependencies/yices2"]
+	path = dependencies/yices2
+	url = https://github.com/SRI-CSL/yices2
+[submodule "dependencies/yosys"]
+	path = dependencies/yosys
+	url = https://github.com/YosysHQ/yosys.git
