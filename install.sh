@@ -1,11 +1,4 @@
 #------------------------------------------------------------------
-# Info
-#------------------------------------------------------------------
-
-# Tested on Ubuntu 20.04.6 LTS
-
-
-#------------------------------------------------------------------
 # Variables
 #------------------------------------------------------------------
 
@@ -36,7 +29,7 @@ FORCE=false
 
 while getopts :hf opt; do
     case $opt in 
-        h) echo "Script usage: install_ubuntu.sh [-f]"
+        h) echo "Script usage: install.sh [-f]"
            echo "\n-f (optional) | Force installation of all components" ; exit ;;
         f) FORCE=true ;;
        \?) echo "Unknown option -$OPTARG"; exit 1;;
