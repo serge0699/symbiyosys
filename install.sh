@@ -40,20 +40,26 @@ done
 # Installation
 #------------------------------------------------------------------
 
-# Quietly update submodules
-git submodule update --recursive --init
-
 print_log "Installing prerequisites"
 
 # Install prerequisites
-sudo apt-get install build-essential clang bison flex \
-                     libreadline-dev gawk tcl-dev libffi-dev git \
-                     graphviz xdot pkg-config python3 zlib1g-dev \
-                     gtkwave
 
-python3 -m pip install click
+sudo kill -9 $(cat /var/run/yum.pid 2>/dev/null)
+
+sudo yum group install -y "Development Tools"
+
+sudo yum install -y clang readline-devel tcl-devel libffi-devel \
+                    graphviz xdotool zlib-devel gtkwave llvm-toolset-7 \
+                    gperf glibc-static libstdc++-static gmp-devel
+
+sudo python3 -m pip install click dataclasses pyyaml
+
+source scl_source enable llvm-toolset-7
 
 print_log "Installing tools"
+
+# Quietly update submodules
+git submodule update --recursive --init
 
 # Install Yosys, Yosys-SMTBMC and ABC
 if [ -z "$(which yosys)" ] || $FORCE; then
@@ -85,18 +91,6 @@ if [ -z "$(which boolector)" ] || $FORCE; then
     sudo cp deps/btor2tools/bin/btorsim /usr/local/bin/
 else
     echo "Boolector is already installed"
-    echo "You can use -f flag to force installation anyway"
-fi
-
-# Install Yices 2
-if [ -z "$(which yices)" ] || $FORCE; then
-    cd $DEP_DIR/yices2
-    autoconf
-    ./configure
-    make -j$(nproc)
-    sudo make install
-else
-    echo "Yices 2 is already installed"
     echo "You can use -f flag to force installation anyway"
 fi
 
