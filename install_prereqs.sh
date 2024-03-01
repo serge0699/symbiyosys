@@ -37,3 +37,4 @@ cd cmake-3.6.2
 sudo ./bootstrap --prefix=/usr/local
 sudo make
 sudo make install
+cd ..
