@@ -36,27 +36,10 @@ while getopts :hf opt; do
     esac
 done
 
+
 #------------------------------------------------------------------
 # Installation
 #------------------------------------------------------------------
-
-print_log "Installing prerequisites"
-
-# Install prerequisites
-
-sudo kill -9 $(cat /var/run/yum.pid 2>/dev/null)
-
-sudo yum group install -y "Development Tools"
-
-sudo yum install -y centos-release-scl
-
-sudo yum install -y clang readline-devel tcl-devel libffi-devel \
-                    graphviz xdotool zlib-devel gtkwave llvm-toolset-7 \
-                    gperf glibc-static libstdc++-static gmp-devel python3
-
-sudo python3 -m pip install click dataclasses pyyaml
-
-source scl_source enable llvm-toolset-7
 
 print_log "Installing tools"
 
