@@ -52,7 +52,7 @@ sudo yum install -y centos-release-scl
 
 sudo yum install -y clang readline-devel tcl-devel libffi-devel \
                     graphviz xdotool zlib-devel gtkwave llvm-toolset-7 \
-                    gperf glibc-static libstdc++-static gmp-devel
+                    gperf glibc-static libstdc++-static gmp-devel python3
 
 sudo python3 -m pip install click dataclasses pyyaml
 
