@@ -48,6 +48,8 @@ sudo kill -9 $(cat /var/run/yum.pid 2>/dev/null)
 
 sudo yum group install -y "Development Tools"
 
+sudo yum install centos-release-scl
+
 sudo yum install -y clang readline-devel tcl-devel libffi-devel \
                     graphviz xdotool zlib-devel gtkwave llvm-toolset-7 \
                     gperf glibc-static libstdc++-static gmp-devel
